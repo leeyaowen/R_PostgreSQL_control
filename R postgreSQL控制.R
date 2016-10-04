@@ -6,7 +6,7 @@ dbGetQuery(con,"select * from plotdata where dbh>20") #下SQL(可視資料)
 data<- dbGetQuery(con,"select * from plotdata where dbh>20") #下SQL指向資料
 View(data) 
 
-sp<-iconv(data$sp,"UTF-8","CP950") #解決UTF-8亂碼問題，轉換為繁體中文(CP950)
+data$sp<-iconv(data$sp,"UTF-8","CP950") #解決UTF-8亂碼問題，轉換為繁體中文(CP950)
 
 library(spatstat)
 x3<-as.numeric(data$x3) #data type轉換，字串轉數字
